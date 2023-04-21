@@ -7,6 +7,6 @@ int main(void)
 	for (int i = 0; i < N; i ++)
 		zombies[i].announce();
 	delete[] zombies;
-	system("leaks -q Zombie");
+	// system("leaks -q Zombie");
 	return (0);
 }
