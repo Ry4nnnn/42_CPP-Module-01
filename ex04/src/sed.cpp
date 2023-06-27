@@ -10,8 +10,10 @@ Sed::Sed(char *filename, char *s1, char *s2)
 }
 
 void Sed::openfile(void) {
+    std::string file_str;
     std::ifstream file(_filename);
 
+assaaaaaaaaaaaaaasaaaassaaaaaaaaaaaaaa
     if (!file)
     {
         std::cerr << "ERROR Opening File." << std::endl;
