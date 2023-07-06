@@ -5,6 +5,9 @@
 # include <string>
 # include <cstdlib>
 
+using std::cout;
+using std::endl;
+
 class Harl
 {
 	private :

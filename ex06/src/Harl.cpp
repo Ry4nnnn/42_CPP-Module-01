@@ -9,7 +9,7 @@ Harl::~Harl() {
 }
 
 void	Harl::debug(void) {
-	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn't be asking for more!" << std::endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
 
 void	Harl::info(void) {
@@ -25,20 +25,43 @@ void	Harl::error(void) {
 }
 
 void	Harl::complain(std::string level) {
-	static std::string	complain_list[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	static std::string	level_list[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	static void			(Harl::*function_list[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	void				(Harl::*selected)(void) = NULL;
-	int					i = 0;
+	int index = 4;
 
-	while (i < 4)
+	for (int i = 0; i < 4; i++)
 	{
-		if (level == complain_list[i])
+		if (level == level_list[i])
 		{
-			selected = function_list[i];
+			index = i;
 			break ;
 		}
-		i++;
 	}
-	if (selected != NULL)
-		(this->*selected)();
+	switch (index)
+	{
+		case 0:
+			std::cout << "[ DEBUG ]" << std::endl;
+			(this->*function_list[0])();
+			std::cout << std::endl;
+
+		case 1:
+			std::cout << "[ INFO ]" << std::endl;
+			(this->*function_list[1])();
+			std::cout << std::endl;
+			
+		case 2:
+			std::cout << "[ WARNING ]" << std::endl;
+
+			(this->*function_list[2])();
+			std::cout << std::endl;
+
+		case 3:
+			std::cout << "[ ERROR ]" << std::endl;
+			(this->*function_list[3])();
+			std::cout << std::endl;
+
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }

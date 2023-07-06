@@ -7,8 +7,8 @@ static int replace_text(std::string file_name, std::string find, std::string rep
 	std::ifstream	infile(file_name);
 	std::ofstream	outfile(file_name + ".replace");
 	std::string		buffer;
-	std::string		pos;
-	std::string		start_pos;
+	std::string::size_type		pos;
+	std::string::size_type		start_pos;
 	int				stop;
 	
 	if (!outfile)
@@ -30,7 +30,7 @@ static int replace_text(std::string file_name, std::string find, std::string rep
 		while (pos != std::string::npos)
 		{
 			buffer.erase(pos, find.length());
-			buffer.insert(pos, replace());
+			buffer.insert(pos, replace);
 			start_pos = pos + replace.length();
 			pos = buffer.find(find, start_pos);
 		}
