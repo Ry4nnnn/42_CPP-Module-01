@@ -42,7 +42,7 @@ int main(int ac, char **av)
 			harl.complain(input_level);
 			std::cout << std::endl;
 			break ;
-		case 4:
+		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 	return (0);
